@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import TopNavBar from "./component/header/TopNavBar";
+import TopNavBar from "./component/header/header/TopNavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "HRM - Alpinist Studio",
-  description: "Created By Studio Team - human Resource",
+  description: "Created by Alpinist Studio Team -  Human Resource Management",
 };
 
 export default function RootLayout({
@@ -28,8 +28,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TopNavBar />
-        <div> {children}</div>
+        <TopNavBar></TopNavBar>
+        <div className="">{children}</div>
       </body>
     </html>
   );
