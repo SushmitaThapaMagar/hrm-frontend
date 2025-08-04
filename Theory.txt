@@ -1,0 +1,73 @@
+- npm install : it helps you to install the dependencies and packages
+
+
+//August 01 - 2025
+
+
+//Learh how to read React Docs in here
+
+https://react.dev/
+
+npx create-next-app@latest
+npx : 
+
+
+jQuery brings the uodates without refresh it 
+jQuery 
+eslinst
+Tailwind CSS
+In tailwind CSS : started from small scale to large scale like spotify music
+features for designing 
+
+In bootstrap we go through : - 
+- help to design the frameworks
+- break point like the size of the screen
+
+turbopack : hotredulemodel (when the changes in code , it will update and it will auto update you dont need to refresh the page)
+import alias : alias allows you to create a shorthand 
+
+WSL : windoss subsystem for linux
+Linus Torvalds -- person 
+
+
+gitignore : ignore the changes, files that are in gitignore helps to ignore the content in it
+
+eslint.config.js : lint seems like the extentions of vs code like prettier
+postcss.config.mis : standard of css that use tailwind 
+
+README.md : file that contains file fro documentation of the code
+
+
+=== Difference between the nextJS and React is the file folders
+
+
+layout.tsx = displays meta data
+
+
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>)
+
+function RootLayout({...}): This defines a functional component named RootLayout
+
+{ children }: This is destructuring assignment. 
+It extracts the children prop from the component's props
+
+Readonly: This utility type makes the props immutable, 
+meaning they cannot be modified within the component.
+
+{ children: React.ReactNode; }: This defines the type of the props:
+children: The prop is expected to be of type React.ReactNode
+
+
+for now the children is page.tsx
+
+React- icon installation
+- npm i react-icon
+
+
+
+Context-Provider ===========
