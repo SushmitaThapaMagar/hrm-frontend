@@ -1,15 +1,18 @@
 import Button from "@/app/component/input/Button";
 import InputLabel from "@/app/component/input/InputLabel";
 import InputText from "@/app/component/input/InputText";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function LoginBox() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onFormSubmit = () => {
     console.log(email, password);
     alert("Form Submitted");
+    router.push(`/dashboard?email=${email}&password=${password}`);
   };
 
   return (
@@ -40,6 +43,7 @@ export default function LoginBox() {
           }
         ></InputText>
         <Button
+          value="Login"
           name={"login"}
           id={"login-button"}
           buttonClickEvent={() => onFormSubmit()}

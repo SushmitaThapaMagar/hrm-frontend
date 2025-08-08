@@ -1,4 +1,4 @@
-"use client";
+"use client"; //NextJS is both side that's we use "use client" in this
 import React from "react";
 
 export default function InputText({
@@ -9,7 +9,7 @@ export default function InputText({
   value,
   onChangeInput,
 }: {
-  type: "text" | "password";
+  type: "text" | "password" | "name" | "number" | "email";
   name: string;
   id: string;
   placeholder: string;

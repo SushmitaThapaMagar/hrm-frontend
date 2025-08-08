@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
-import { IoLogoMarkdown } from "react-icons/io";
 import Link from "next/link";
+// import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
+// import { IoLogoMarkdown } from "react-icons/io";
 
 const navigation = {
   categories: [],
@@ -17,7 +17,7 @@ export default function TopNavBar() {
 
   return (
     <div className="bg-white">
-      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+      {/* <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"
@@ -76,7 +76,7 @@ export default function TopNavBar() {
             </div>
           </DialogPanel>
         </div>
-      </Dialog>
+      </Dialog> */}
 
       <header className="relative bg-white">
         {/* <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
@@ -111,18 +111,38 @@ export default function TopNavBar() {
                 </Link>
               </div>
 
-              <div className="ml-auto flex items-center">
+              <div className="text-gray-600 ml-auto flex items-center gap-5">
+                <Link
+                  href={"/"}
+                  className="text-zinc-600 underline-offset-[4px]"
+                >
+                  Home
+                </Link>
+
+                <Link
+                  href={"/dashboard"}
+                  className="text-zinc-600 underline-offset-[4px]"
+                >
+                  Dashboard
+                </Link>
+
+                <Link
+                  href={"/learning"}
+                  className="text-zinc-600 underline-offset-[4px]"
+                >
+                  Learning
+                </Link>
+
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link
                     href={"/login"}
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    className="text-md font-medium text-gray-700 hover:text-cyan-600"
                   >
                     Login
                   </Link>
-                  <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                   <Link
                     href="/register"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    className="text-md font-medium text-gray-700 hover:text-cyan-600"
                   >
                     Create account
                   </Link>

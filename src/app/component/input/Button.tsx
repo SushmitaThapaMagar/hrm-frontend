@@ -3,7 +3,7 @@ import React from "react";
 export default function Button({
   name,
   id,
-  value = "submit",
+  value,
   buttonClickEvent,
   buttonType,
 }: {
@@ -16,7 +16,7 @@ export default function Button({
   let buttonClass = "";
   switch (buttonType) {
     case "primary":
-      buttonClass = "bg-blue-500 text-white/90";
+      buttonClass = "bg-cyan-600 text-white/90";
       break;
     case "secondary":
       buttonClass = " bg-slate-100 text-black/90";
@@ -35,7 +35,7 @@ export default function Button({
         type="button"
         value={value}
         onClick={() => buttonClickEvent()}
-        className={`py-1 px-3 rounded-md hover:cursor-pointer ${buttonClass}`}
+        className={`py-1.5 px-3 rounded-md hover:cursor-pointer ${buttonClass}`}
       />
     </div>
   );
