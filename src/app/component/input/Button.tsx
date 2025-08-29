@@ -3,20 +3,22 @@ import React from "react";
 export default function Button({
   name,
   id,
-  value,
+  value = "submit",
   buttonClickEvent,
   buttonType,
+  type = "button",
 }: {
   name: string;
+  type: "button" | "submit";
   id: string;
   value?: string;
-  buttonClickEvent: Function;
+  buttonClickEvent?: () => void;
   buttonType: "primary" | "secondary" | "danger";
 }) {
   let buttonClass = "";
   switch (buttonType) {
     case "primary":
-      buttonClass = "bg-cyan-600 text-white/90";
+      buttonClass = "bg-blue-500 text-white/90";
       break;
     case "secondary":
       buttonClass = " bg-slate-100 text-black/90";
@@ -32,10 +34,10 @@ export default function Button({
   return (
     <div className="flex w-full grid-flow-col grid-cols-3 place-content-center">
       <input
-        type="button"
+        type={type}
         value={value}
-        onClick={() => buttonClickEvent()}
-        className={`py-1.5 px-3 rounded-md hover:cursor-pointer ${buttonClass}`}
+        onClick={buttonClickEvent}
+        className={`py-1 px-3 rounded-md hover:cursor-pointer ${buttonClass}`}
       />
     </div>
   );

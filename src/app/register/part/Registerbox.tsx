@@ -2,63 +2,77 @@ import Button from "@/app/component/input/Button";
 import InputLabel from "@/app/component/input/InputLabel";
 import InputText from "@/app/component/input/InputText";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie"; // Import js-cookie
+import { toast, ToastContainer } from "react-toastify";
 
-export default function Registerbox() {
+export default function LoginBox() {
   const router = useRouter();
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [fname, setFirstname] = useState("");
+  const [lname, setLastname] = useState("");
+  const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phonenumber, setPhoneNumber] = useState("");
 
-  const onSubmit = () => {
-    console.log(firstname, lastname, email, password, phonenumber);
-    alert("Register Successsfully!");
-    router.push(
-      `/dashboard1?firstname=${firstname}&lastname=${lastname}&email=${email}&password=${password}&phonenumber=${phonenumber}`
-    );
+  // var username = "Sushmita";
+  // Update the event type to FormEvent<HTMLFormElement>
+  const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission
+    console.log(email, fname, lname, number, password);
+
+    // Simulate successful login
+    if (email === "test@example.com" && password === "password") {
+      Cookies.set("authToken", "dummyToken"); // Simulate storing a token
+      router.push("/dashboard"); // Redirect to dashboard
+      toast.success("You are Register Succssfully!", { autoClose: 5000 });
+    } else {
+      console.error("Login failed: Invalid credentials"); // Handle login failure
+    }
   };
 
   return (
-    <div className="w-96 h-fit bg-slate-50 my-10 p-4 rounded-md">
-      <div className="text-lg font-bold text-cyan-600 text-center">Sign Up</div>
-      <div className="text-sm text-black my-5 mx-2 border-t border-gray-300">
+    <div className="w-96 h-fit bg-slate-50 my-10 p-4 rounded-sm">
+      <div className="text-md font-bold text-black text-center">Log In</div>
+      <form
+        onSubmit={onFormSubmit}
+        className="text-sm text-black my-4 border-t border-gray-300"
+      >
         <InputLabel label="First Name"></InputLabel>
         <InputText
-          type="name"
-          name={"fname"}
-          id={"fname"}
-          placeholder={"Enter Your First Name"}
-          value={firstname}
-          onChangeInput={(
-            e: React.ChangeEvent<HTMLInputElement> //use for type safety
-          ) => setFirstName(e.target.value)}
+          type="text"
+          name={"firstname"}
+          id={"firstname"}
+          placeholder={"Enter name"}
+          value={email}
+          onChangeInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setFirstname(e.target.value);
+          }}
         ></InputText>
 
         <InputLabel label="Last Name"></InputLabel>
         <InputText
-          type="name"
-          name={"lname"}
-          id={"lname"}
-          placeholder={"Enter Your Last Name"}
-          value={lastname}
-          onChangeInput={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setLastName(e.target.value)
-          }
+          type="text"
+          name={"lastname"}
+          id={"lastname"}
+          placeholder={"Enter username"}
+          value={email}
+          onChangeInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setLastname(e.target.value);
+          }}
         ></InputText>
 
-        <InputLabel label="Email"></InputLabel>
+        <InputLabel label="Username / Email"></InputLabel>
         <InputText
           type="text"
-          name={"email"}
-          id={"email"}
-          placeholder={"Enter Your Email"}
+          name={"username"}
+          id={"username"}
+          placeholder={"Enter username"}
           value={email}
-          onChangeInput={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setEmail(e.target.value)
-          }
+          onChangeInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setEmail(e.target.value);
+          }}
         ></InputText>
+
         <InputLabel label="Password"></InputLabel>
         <InputText
           type="password"
@@ -71,25 +85,26 @@ export default function Registerbox() {
           }
         ></InputText>
 
-        <InputLabel label="Phone Number"></InputLabel>
+        <InputLabel label="Number"></InputLabel>
         <InputText
-          type="number"
-          name={"phoneno"}
-          id={"phoneno"}
-          placeholder={"Enter Phone Number"}
-          value={phonenumber}
-          onChangeInput={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setPhoneNumber(e.target.value)
-          }
+          type="text"
+          name={"number"}
+          id={"number"}
+          placeholder={"Enter username"}
+          value={email}
+          onChangeInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setNumber(e.target.value);
+          }}
         ></InputText>
+
         <Button
-          name={"register"}
-          value={"Register"}
-          id={"register-button"}
-          buttonClickEvent={() => onSubmit()}
+          type={"submit"}
+          name={"login"}
+          id={"login-button"}
           buttonType={"primary"}
         ></Button>
-      </div>
+      </form>
+      <ToastContainer />
     </div>
   );
 }

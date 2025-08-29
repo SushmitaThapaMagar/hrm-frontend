@@ -1,29 +1,42 @@
 "use client";
+
 import React from "react";
+import ThemeToggle from "./component/theme/ThemeToggle";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import Link from "next/link";
-import { useTheme } from "./contextprovider/page/ThemeProvider";
 
 const HomePage: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <div
-      className={`min-h-screen flex flex-col items-center justify-center p-6 ${
-        theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"
-      }`}
-    >
-      <h1 className="text-4xl font-bold mb-4">Welcome to Home Page</h1>
-      <p className="text-md mb-3">Current Theme: {theme}</p>
-      <button
-        onClick={toggleTheme}
-        className="bg-cyan-700 hover:bg-cyan-500 mb-3 text-white font-semibold py-2 px-2 rounded transition duration-300"
-      >
-        Toggle Theme
-      </button>
-      <Link href="/login" className="text-cyan-600 hover:text-cyan-500">
-        Go to Login
-      </Link>
-    </div>
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50transition-colors">
+      <h1 className="text-4xl font-bold mb-6 text-gray-800 dark:text-green-700">
+        Theme Provider Example
+      </h1>
+
+      <ThemeToggle />
+      <ToastContainer position="top-center" autoClose={2000} />
+
+      <br />
+      <br />
+
+      {/* to fetch the data from the API */}
+
+      <div className="flex justify-center space-x-6 mt-1">
+        <Link
+          href="/fetch-example"
+          className="px-5 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
+        >
+          Example with Fetch API
+        </Link>
+
+        <Link
+          href="/axios-example"
+          className="px-4 py-2 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
+        >
+          Example with Axios
+        </Link>
+      </div>
+    </main>
   );
 };
 

@@ -70,4 +70,292 @@ React- icon installation
 
 
 
-Context-Provider ======
+framework in network to share data across different parts of application without having to pass props down at every level
+
+state : built-in object that allows components to manage and respond to dynamic data
+
+- cors in React ?
+- axios in react ?
+- payload ?
+- Cookies ?
+- PWA : Progressive Web APP behaves like a native mobile/desktop app,
+but it's built web technologies like HTML, CSS and JS \PWA
+LCP Element
+- Service worker : if offline then it sends message or sensor related worker
+- FN . to open vs in github
+- application manifest => 
+
+
+
+
+Storage in Application 
+- local storage : it has key and value e.g. it puts information that is related to you but not heavy weightage
+- session storage : server session can not be accessed, comapratively the storage of session is less
+- extention storage : e.g. Wappalyzer (extention) normally we dont use incase of related extentions
+- Cookies : data stored in browser by the website and comes from the backend
+
+
+
+Components in React ======
+1. Building blocks of the user interface
+2. Can be classifies into two types : functional and class components
+- Functional Components : they accept the props and more often used for presentational purposes
+- Class Components : they are extended from React.Component and they hold state and lifecycle methods
+3. Components allow you to build reusable UI elements, manage state and effects and create dynamic applications
+
+Context-Provider ====== study it 
+
+1. Context Provider is used to share the data globally accross your component tree, without having to pass props manually at every level
+2. Create Context => React.createContext()
+3. Context => global state ===== Provider => supplies value to components
+4. Consumer (useContext) => components that nees the values
+
+Keypoints : of Context Provider
+- React context isnot supported in server components
+- If you try to create a content at the ypur appliactions's root , you'll run into an error
+- live near the root of an application to share global state and logic 
+- e.g. application's theme
+- 
+
+
+
+
+
+REVISION =======
+
+Day 8-10 :
+
+1. React Library and it's concepts
+
+Library : 
+a. Components -- can be function or class (reusable pieces of UI)
+b. Props -- used to pass data from one component to another
+c. State -- used to manage and track component data that changes over time
+d. JSX (JS XML) -- syntax extention that allows you to write HTML-like code in JS files
+e. Lifecycle Methods -- hooks that allow you to run code at specific points in a component's life when it mounts, updates and unmounts
+f. Hooks -- functions that let you use state and other React features in functional components -- useState, useEffect and useContext
+
+
+2.  Setting up a development environment with create react app
+npx create-react-app my-app
+cd my-app
+npm start
+
+3. Building and rendering simple components
+
+Rendering : process of generating the user interface (UI) based on the component's state and props
+
+In class components, the render() method is where you define what the UI should look like.
+In functional components, the function itself serves as the render method.
+
+ return (
+    <div>
+      <Greeting name="Sushmita" />
+      <Greeting name="Ashish" />
+    </div>
+  );
+
+4. Understanding component lifecycle methods
+
+DOM - Document object Model -- interface that represents the structure of a document like HTML as a tree of objects 
+e.g. 
+<div>
+    <h1>Hello, World!</h1>
+    <p>This is a paragraph.</p>
+</div> 
+
+In the DOM, this structure would represent a tree with a root <div> node, which has child nodes <h1> and <p>.
+React utilizes the Virtual DOM to optimize rendering by minimizing direct interactions with the real DOM.
+invoke === to call a function or execute the function
+
+a. Mounting: The phase when a component is being added to the DOM.
+b. Updating: The phase when a component is being re-rendered due to changes in props or state.
+c. Unmounting: The phase when a component is being removed from the DOM.
+
+
+
+=== RENDERING AND MOUNTING 
+
+******
+- Rendering means showing something on the screen
+- Rendering is how your components turn into HTML that the browser can displays
+- Your JSX code (<h1>Hello</h1>) is converted into HTML and displayed in the browser.
+- Whenever your data (state/props) changes, React re-renders (updates) the UI.
+
+
+
+e.g. 
+"use client"
+
+import {useState, useEffect} from 'react';
+
+export default function ClientPage(){
+const [time, setTime] = useState(""); 
+
+//useState store and update values
+//time is state variable
+// setTime is the finction to update time
+
+useEffect(()=>{ 
+  
+  //useEffect run side effects like fetching data, timers, DOM changes
+  
+  setTime(new Date().toLocaleTimeString()) 
+
+//new Date().toLocaleTimeString() return the current time of system
+
+},[]);
+
+return <h1>Client Side Rendered:{time}</h1>
+//{time} will return the currect time
+}
+
+
+
+******
+
+Mounting means creating a component and inserting it into the DOM for the first time.
+Document Object Model(DOM) represents the structure like HTML
+
+
+Example :
+
+
+
+"use client"; // make it a client component
+import { useEffect, useState } from "react";
+
+export default function MountExample() {
+  const [message, setMessage] = useState("Component is mounting...");
+
+  // Runs only once after the component is mounted
+  useEffect(() => {
+    console.log("Component Mounted!");
+    setMessage("Component Mounted Successfully ");
+  }, []);
+
+  return <h1>{message}</h1>;
+}
+
+ 
+
+
+Day 41-45 : React with Firebase - Hari
+
+ ==== FireBase : Real time message delivery platform
+
+ Realtime data == like delivery system, messaging system, like pathoa, indrive
+ Firebase is of google for authentication and real-time data storage
+
+ FireBase is used for :
+ 
+ a. user management authentication
+ b. Push notification
+
+
+
+=== cors (for tommorrow)
+
+
+
+
+
+NextAuth.tsx
+
+
+What is NextAuth ?
+
+=> a powerful authentication solution for Next.js applicaitons
+=> supports various authentication providers including OAuth,OpenID Connect, email/password and more
+
+Points to be noticed in the NEXTAUTH =====
+
+- npm i next-auth
+- [...nextauth] file 
+
+
+Providers in NextAuth ===
+- Email
+- Credentials : not only id pass
+- OAuth
+
+Pages == "/auth/signin"
+Callbacks == signIn, redirect, session, jwt
+
+JWT : include token
+Session : include token 
+
+We dont do on Route in NextAuth 
+
+
+Why NextAuth ?
+- Secure authentication Library
+- Simplified Process fo integration
+- Flexibility and Customization
+- Saves Time from Recreating Auth Process
+
+- Token based authentication
+- CSRF Protection
+- Passwordless authentication 
+- Configuration  Options : Customization process to shoot application requirements
+
+
+
+
+Where it can ebe used ?
+
+- IT can be integrated with Next.Js, SvelteKit, Nuxt effects
+
+
+
+mock API (DO IT)
+
+API that mimics the behavior of a real API -- 
+it can return prrdefined responses to requests, 
+allowing developers to test frontend functionality, 
+UI components or integrations without relying on a live backend.
+
+Purpose of API : 
+- Testing 
+- Development
+- Protyping
+- Error Handling
+
+
+
+==== Difference between the Fetching data and Axios
+1. They differs from the features, syntax and ease of the use
+ 
+a. 
+
+// Fetching API  : doesnot require any external libraries
+Syntax: 
+
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+//Axios : a third party libraries that provides a simpler and more powerful API
+Syntax: 
+axios.get('https://api.example.com/data')
+.then(response=>console.log(response.data))
+.catch(error=>console.error("Error:", error))
+
+b. 
+- Fetch API requires explicit handling of the response status (status in 200 range)
+- Axios throws an error for response with status code outside the 200 range
+
+
+
+
+
+
+
+
+
+
+
