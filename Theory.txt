@@ -353,6 +353,111 @@ b.
 
 
 
+======Atomic Design Pattern========
+======MUI==========
+======Axios Wrapper====== e.g.interceptor
+======Context Provider========
+======Redux======= Alternative for Redux is context provider
+
+
+======Server side code and client side==== code in NextJS, difference betweent the code that is of client or server??
+why server side code involves hydration ? ===> 
+server side can return the html asn= well as client side can return the html
+server side rendering and client side rendering
+
+DOM are not avaiable in the DOM === which create the hydration
+
+- state, local storage, cookies is in client side not server side
+
+why component are used in client and server?
+== if DOM is avaiable then that's the client side
+== if not DOM that is the server side
+
+
+
+
+
+
+FOR DEPLOYMENT===
+vercel, netlify
+
+
+for domain get .com.np 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
